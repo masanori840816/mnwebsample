@@ -18,6 +18,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.views:micronaut-views-fieldset")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
@@ -47,8 +48,6 @@ micronaut {
         additionalModules.add("jdbc-postgresql")
     }
     aot {
-        // Please review carefully the optimizations enabled below
-        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading = false
         convertYamlToJava = false
         precomputeOperations = true
@@ -60,14 +59,12 @@ micronaut {
     }
 }
 
-
-run {
-    systemProperties([
-        'micronaut.environments': 'local'
-    ])
-}
-tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
-    jdkVersion = "21"
+tasks.named<JavaExec>("run") {
+    systemProperties(mapOf(
+        "micronaut.environments" to "local"
+    ))
 }
 
-
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

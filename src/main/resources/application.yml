@@ -1,0 +1,13 @@
+datasources:
+  default:
+    db-type: postgres
+micronaut:
+  application:
+    name: mnwebsample
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/your_database
+    username: your_username
+    password: your_password
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
