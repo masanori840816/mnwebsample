@@ -4,6 +4,16 @@ datasources:
 micronaut:
   application:
     name: mnwebsample
+  router:
+    static-resources:
+      default:
+        enabled: true
+        paths: classpath:static
+  server:
+    context-path: /mnweb
+    multipart:
+      max-file-size: 20971520
+      enabled: true
 datasources:
   default:
     url: ${MWWEB_DB_URL:`jdbc:postgresql://localhost:5432/default_database`}
