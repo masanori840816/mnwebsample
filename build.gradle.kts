@@ -1,7 +1,6 @@
 plugins {
     id("io.micronaut.application") version "4.5.3"
     id("com.gradleup.shadow") version "8.3.6"
-    id("io.micronaut.test-resources") version "4.5.3"
     id("io.micronaut.aot") version "4.5.3"
 }
 
@@ -43,9 +42,6 @@ micronaut {
     processing {
         incremental(true)
         annotations("jp.masanori.*")
-    }
-    testResources {
-        additionalModules.add("jdbc-postgresql")
     }
     aot {
         optimizeServiceLoading = false
