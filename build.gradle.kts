@@ -18,10 +18,10 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.views:micronaut-views-fieldset")
     implementation("io.micronaut.views:micronaut-views-thymeleaf")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.yaml:snakeyaml")
     testImplementation("io.micronaut:micronaut-http-client")
 }
 
@@ -64,7 +64,6 @@ tasks.named<JavaExec>("run") {
         "micronaut.environments" to "local"
     ))
 }
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
 }

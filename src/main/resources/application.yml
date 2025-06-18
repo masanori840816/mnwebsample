@@ -6,8 +6,8 @@ micronaut:
     name: mnwebsample
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/your_database
-    username: your_username
-    password: your_password
+    url: ${MWWEB_DB_URL:`jdbc:postgresql://localhost:5432/default_database`}
+    username: ${MWWEB_DB_USER:`default_username`}
+    password: ${MWWEB_DB_PASSWORD:`default_password`}
     driverClassName: org.postgresql.Driver
     dialect: POSTGRES
