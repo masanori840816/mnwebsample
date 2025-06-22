@@ -22,6 +22,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.yaml:snakeyaml")
     testImplementation("io.micronaut:micronaut-http-client")
+	testImplementation("org.mockito:mockito-core:5.18.0")
 }
 
 
